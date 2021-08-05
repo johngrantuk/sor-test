@@ -9,7 +9,7 @@ import {
 } from "../tradeFiles";
 import { getSwapsV1 } from "../implementations/sorV1";
 import { getSwapsV2 } from "../implementations/sorV2";
-import { getSwapsGuille } from "../implementations/guilleTemplate";
+import { getSwapsTemplate } from "../implementations/newTemplate";
 import { 
     TradeInfo,
     Result
@@ -36,9 +36,9 @@ async function compareTest(tradeFile: string) {
         // Get result from each implementation
         const swapV1: Result = await getSwapsV1(tradeInfo, swapCost);
         const swapV2: Result = await getSwapsV2(tradeInfo, swapCost);
-        const swapGuille: Result = await getSwapsGuille(tradeInfo, swapCost);
+        const swapTemplate: Result = await getSwapsTemplate(tradeInfo, swapCost);
 
-        const results: Result[] = [swapV1, swapV2, swapGuille];
+        const results: Result[] = [swapV1, swapV2, swapTemplate];
         printResults(tradeInfo, results);
         assertResults(results);
     }).timeout(10000);

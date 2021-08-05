@@ -14,7 +14,7 @@ import {
 } from "../types";
 import { performance } from 'perf_hooks';
 
-export async function getSwapsGuille(tradeInfo: TradeInfo, swapCost: BigNumber): Promise<Result> {
+export async function getSwapsTemplate(tradeInfo: TradeInfo, swapCost: BigNumber): Promise<Result> {
 
     const fullSwapStart = performance.now();
     const r = processSwaps(
@@ -31,7 +31,7 @@ export async function getSwapsGuille(tradeInfo: TradeInfo, swapCost: BigNumber):
     }
 
     const result: Result = {
-        title: 'Guille SOR',
+        title: 'Template SOR',
         timeData: timeData,
         returnAmountWei: r.returnAmount,
         swaps: r.swaps
